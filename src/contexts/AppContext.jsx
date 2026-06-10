@@ -6,6 +6,15 @@ import {
 
 const AppContext = createContext(null);
 
+const APP_VERSION = 'v2';
+const VERSION_KEY = 'k4h_version';
+
+// If version doesn't match, wipe old demo data and start fresh
+if (localStorage.getItem(VERSION_KEY) !== APP_VERSION) {
+  ['k4h_users','k4h_products','k4h_batches','k4h_vehicles','k4h_transactions','k4h_writeoffs'].forEach(k => localStorage.removeItem(k));
+  localStorage.setItem(VERSION_KEY, APP_VERSION);
+}
+
 const load = (key, fallback) => {
   try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
   catch { return fallback; }
