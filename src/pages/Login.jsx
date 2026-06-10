@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext.jsx';
-import { Package, Eye, EyeOff, Loader } from 'lucide-react';
+import { LogoFull } from '../components/Logo.jsx';
+import { Eye, EyeOff, Loader } from 'lucide-react';
 
 export default function Login() {
   const { login } = useAuth();
@@ -23,33 +24,38 @@ export default function Login() {
   return (
     <div style={{
       minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      background: 'var(--bg)', padding: 20,
+      background: '#0d1117', padding: 20,
     }}>
-      {/* Background grid */}
+      {/* Subtle grid */}
       <div style={{
         position: 'fixed', inset: 0, opacity: 0.03,
-        backgroundImage: 'linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
+        backgroundImage: 'linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px)',
+        backgroundSize: '40px 40px', pointerEvents: 'none',
       }} />
 
-      <div style={{ width: '100%', maxWidth: 400, position: 'relative' }}>
+      {/* Navy glow behind logo */}
+      <div style={{
+        position: 'fixed', top: '20%', left: '50%', transform: 'translateX(-50%)',
+        width: 400, height: 400, borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(43,58,92,0.35) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+
+      <div style={{ width: '100%', maxWidth: 420, position: 'relative' }}>
         {/* Logo */}
-        <div style={{ textAlign: 'center', marginBottom: 36 }}>
-          <div style={{
-            width: 60, height: 60, background: 'linear-gradient(135deg, #2ea043, #388bfd)',
-            borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center',
-            margin: '0 auto 16px', boxShadow: '0 8px 24px rgba(46,160,67,0.3)',
-          }}>
-            <Package size={28} color="#fff" />
-          </div>
-          <h1 style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)' }}>Key4Health WMS</h1>
-          <p style={{ color: 'var(--text2)', fontSize: 13, marginTop: 4 }}>Warehouse Management System</p>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 36 }}>
+          <LogoFull width={300} />
         </div>
 
         {/* Card */}
-        <div className="card" style={{ padding: 28 }}>
+        <div className="card" style={{ padding: 28, borderColor: 'rgba(43,58,92,0.6)' }}>
+          <div style={{ marginBottom: 22, textAlign: 'center' }}>
+            <h2 style={{ fontSize: 17, fontWeight: 600 }}>Warehouse Management System</h2>
+            <p style={{ color: 'var(--text2)', fontSize: 13, marginTop: 4 }}>Sign in to your account</p>
+          </div>
+
           <form onSubmit={handleSubmit}>
-            <div className="form-group" style={{ marginBottom: 16 }}>
+            <div className="form-group" style={{ marginBottom: 14 }}>
               <label className="form-label">Username</label>
               <input
                 className="form-input"
@@ -62,7 +68,7 @@ export default function Login() {
               />
             </div>
 
-            <div className="form-group" style={{ marginBottom: 24 }}>
+            <div className="form-group" style={{ marginBottom: 22 }}>
               <label className="form-label">Password</label>
               <div style={{ position: 'relative' }}>
                 <input
@@ -90,14 +96,21 @@ export default function Login() {
               </div>
             )}
 
-            <button type="submit" className="btn btn-primary w-full btn-lg" disabled={loading} style={{ justifyContent: 'center' }}>
-              {loading ? <><Loader size={16} style={{ animation: 'spin 1s linear infinite' }} /> Signing in…</> : 'Sign In'}
+            <button
+              type="submit"
+              className="btn btn-primary w-full btn-lg"
+              disabled={loading}
+              style={{ justifyContent: 'center', background: '#b85c38', fontSize: 15 }}
+            >
+              {loading
+                ? <><Loader size={16} style={{ animation: 'spin 1s linear infinite' }} /> Signing in…</>
+                : 'Sign In'}
             </button>
           </form>
         </div>
 
         <p style={{ textAlign: 'center', color: 'var(--text3)', fontSize: 12, marginTop: 20 }}>
-          © {new Date().getFullYear()} Key4Health · All rights reserved
+          © {new Date().getFullYear()} Key4Health · Sales &amp; Distribution · All rights reserved
         </p>
       </div>
 

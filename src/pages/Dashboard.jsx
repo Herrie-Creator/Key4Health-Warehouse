@@ -6,7 +6,7 @@ import { Package, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, Truck } 
 import { format, parseISO } from 'date-fns';
 
 export default function Dashboard({ setPage }) {
-  const { products, batches, transactions, vehicles, getProductStock, expiringBatches, lowStockProducts, expiredCount, criticalCount } = useApp();
+  const { products, batches, transactions, vehicles, writeoffs, getProductStock, expiringBatches, lowStockProducts, expiredCount, criticalCount, writeoffThisMonth } = useApp();
   const { currentUser } = useAuth();
 
   const totalProducts   = products.length;
@@ -56,7 +56,7 @@ export default function Dashboard({ setPage }) {
       )}
 
       {/* Stats */}
-      <div className="grid-4" style={{ marginBottom: 24 }}>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))", gap:16, marginBottom:24 }}>
         <div className="stat-card">
           <div className="stat-label">Total SKUs</div>
           <div className="stat-value" style={{ color: 'var(--blue)' }}>{totalSKUs}</div>
@@ -71,6 +71,13 @@ export default function Dashboard({ setPage }) {
           <div className="stat-label">Today: Dispatched</div>
           <div className="stat-value" style={{ color: 'var(--amber)' }}>{todayOut}</div>
           <div className="stat-sub">units booked out today</div>
+        </div>
+        <div className="stat-card" style={{ cursor:'pointer' }} onClick={() => setPage('write-off')}>
+          <div className="stat-label">Write-Offs (Month)</div>
+          <div className="stat-value" style={{ color: 'var(--red)', fontSize: 24 }}>
+            R{writeoffThisMonth.toLocaleString('en-ZA',{minimumFractionDigits:0,maximumFractionDigits:0})}
+          </div>
+          <div className="stat-sub">{(writeoffs||[]).filter(w=>w.date?.startsWith(new Date().toISOString().slice(0,7))).length} incidents this month</div>
         </div>
         <div className="stat-card">
           <div className="stat-label">Expiry Alerts</div>
