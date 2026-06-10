@@ -3,9 +3,9 @@
 export const INITIAL_USERS = [
   {
     id: 'u1',
-    name: 'Warren Swartz',
-    username: 'warren',
-    password: 'Warren@K4H2024',
+    name: 'Warren Thomas',
+    username: 'Warren',
+    password: 'warren123',
     role: 'manager',
     email: 'warren@key4health.co.za',
     avatar: 'WS',
@@ -15,9 +15,9 @@ export const INITIAL_USERS = [
   },
   {
     id: 'u2',
-    name: 'Divan Nel',
-    username: 'divan',
-    password: 'Divan@K4H2024',
+    name: 'Divan',
+    username: 'Divan',
+    password: 'divan123',
     role: 'warehouse',
     email: 'divan@key4health.co.za',
     avatar: 'DN',
