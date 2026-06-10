@@ -109,7 +109,7 @@ export default function StockOut() {
                     onClick={() => handleScan(p.barcode)}
                     style={{
                       background: hasExpired ? 'rgba(248,81,73,0.06)' : 'var(--surface)',
-                      padding: '14px 16px', border: 'none',
+                      padding: '14px 16px', border: 'none', color: 'var(--text)',
                       cursor: qty <= 0 ? 'not-allowed' : 'pointer',
                       textAlign: 'left', opacity: qty <= 0 ? 0.4 : 1,
                       borderLeft: hasExpired ? '3px solid var(--red)' : '3px solid transparent',

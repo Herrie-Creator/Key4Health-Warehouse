@@ -86,7 +86,7 @@ export default function StockIn() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'var(--border2)' }}>
               {products.map(p => (
                 <button key={p.id} onClick={() => { setScanned(p); setForm({ productId: p.id, qty: '', batchNumber: '', expiryDate: '', location: '', poNumber: '', costPrice: '', receivedDate: new Date().toISOString().split('T')[0], deliveryNote: '', note: '' }); setStep('detail'); }}
-                  style={{ background: 'var(--surface)', padding: '14px 16px', border: 'none', cursor: 'pointer', textAlign: 'left', transition: 'background 0.1s' }}
+                  style={{ background: 'var(--surface)', padding: '14px 16px', border: 'none', color: 'var(--text)', cursor: 'pointer', textAlign: 'left', transition: 'background 0.1s' }}
                   onMouseEnter={e => e.target.style.background = 'var(--surface2)'}
                   onMouseLeave={e => e.target.style.background = 'var(--surface)'}>
                   <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--text)' }}>{p.name}</div>

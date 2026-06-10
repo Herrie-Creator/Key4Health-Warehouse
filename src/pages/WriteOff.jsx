@@ -105,7 +105,7 @@ export default function WriteOff() {
                     return (
                       <button key={p.id} disabled={qty <= 0} onClick={() => handleScan(p.barcode)} style={{
                         background: hasExpired ? 'rgba(248,81,73,0.06)' : 'var(--surface)',
-                        padding: '13px 16px', border: 'none',
+                        padding: '13px 16px', border: 'none', color: 'var(--text)',
                         cursor: qty <= 0 ? 'not-allowed' : 'pointer',
                         textAlign: 'left', opacity: qty <= 0 ? 0.4 : 1,
                         borderLeft: hasExpired ? '3px solid var(--red)' : '3px solid transparent',
@@ -145,6 +145,7 @@ export default function WriteOff() {
                         background: isSelected ? 'rgba(248,81,73,0.1)' : 'var(--surface2)',
                         border: `2px solid ${isSelected ? 'var(--red)' : 'var(--border)'}`,
                         borderRadius: 8, padding: '14px 16px', cursor: 'pointer', textAlign: 'left',
+                        color: 'var(--text)',
                       }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                           <div>
@@ -188,7 +189,7 @@ export default function WriteOff() {
                       background: reason?.id === r.id ? 'rgba(248,81,73,0.12)' : 'var(--surface2)',
                       border: `2px solid ${reason?.id === r.id ? 'var(--red)' : 'var(--border)'}`,
                       borderRadius: 8, padding: '12px 14px', cursor: 'pointer', textAlign: 'left',
-                      transition: 'all 0.12s',
+                      color: 'var(--text)', transition: 'all 0.12s',
                     }}>
                       <div style={{ fontSize: 18, marginBottom: 4 }}>{r.icon}</div>
                       <div style={{ fontSize: 12, fontWeight: 600, color: reason?.id === r.id ? 'var(--red)' : 'var(--text)' }}>
