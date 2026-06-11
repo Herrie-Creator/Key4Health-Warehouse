@@ -9,8 +9,8 @@ A full-featured, browser-based warehouse management system built for Key4Health.
 
 | Name | Username | Password | Role |
 |------|----------|----------|------|
-| Warren Swartz | `warren` | `Warren@K4H2024` | Manager |
-| Divan Nel | `divan` | `Divan@K4H2024` | Warehouse |
+| Warren Thomas | `warren` | `warren123` | Manager |
+| Divan | `divan` | `divan123` | Warehouse |
 
 > **Change passwords immediately after first login** via User Management → Change Password.
 
@@ -138,4 +138,4 @@ src/
 
 ## 📞 Support
 
-Built for Key4Health by Claude (Anthropic). For backend integration or feature additions, hand this codebase to a developer — it's clean, well-structured React and ready to be extended.
+Built for Key4Health by Herman in conjuntion with Claude (Anthropic). For backend integration or feature additions, hand this codebase to a developer — it's clean, well-structured React and ready to be extended.
